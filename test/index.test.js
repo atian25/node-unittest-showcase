@@ -1,10 +1,13 @@
 import assert from 'assert/strict';
+import request from 'supertest';
 
-import { run } from '../index.js';
+import { init } from '../lib/server.js';
 
 describe('test/index.test.js', () => {
   it('should work', async () => {
-    const result = await run();
-    assert.equal(result, 'Hello World!');
+    const app = init();
+    await request(app.callback())
+      .get('/')
+      .expect(200, 'Hello World');
   });
 });
