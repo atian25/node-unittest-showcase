@@ -56,4 +56,4 @@ export default class TodoStore {
     // 删除对象
     return this.store.splice(index, 1);
   }
-};
+}
