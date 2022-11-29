@@ -1,16 +1,14 @@
-# Node.js Repository Template
+# Node.js Showcase for UnitTest
 
-{{description}}
-
-[![NPM version](https://img.shields.io/npm/v/{{name}}.svg?style=flat-square)](https://npmjs.org/package/{{name}})
-[![NPM quality](http://npm.packagequality.com/shield/{{name}}.svg?style=flat-square)](http://packagequality.com/#?package={{name}})
-[![NPM download](https://img.shields.io/npm/dm/{{name}}.svg?style=flat-square)](https://npmjs.org/package/{{name}})
-
-[![Continuous Integration](https://github.com/{{org}}/{{name}}/actions/workflows/nodejs.yml/badge.svg)](https://github.com/{{org}}/{{name}}/actions/workflows/nodejs.yml)
-[![Test coverage](https://img.shields.io/codecov/c/github/{{org}}/{{name}}.svg?style=flat-square)](https://codecov.io/gh/{{org}}/{{name}})
+[![Continuous Integration](https://github.com/atian25/node-unittest-showcase/actions/workflows/nodejs.yml/badge.svg)](https://github.com/atian25/node-unittest-showcase/actions/workflows/nodejs.yml)
+[![Test coverage](https://img.shields.io/codecov/c/github/atian25/node-unittest-showcase.svg?style=flat-square)](https://codecov.io/gh/atian25/node-unittest-showcase)
 
 ## Usage
 
 ```bash
-$ npm i {{name}}
+$ npm i
+$ npm run dev
+
+$ npm test
+$ npm run cov
 ```

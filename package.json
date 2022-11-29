@@ -1,9 +1,10 @@
 {
-  "name": "example",
+  "name": "node-unittest-showcase",
   "version": "1.0.0",
-  "description": "this is an example",
+  "description": "just a showcase for node.js unitest",
   "author": "TZ <atian25@qq.com>",
   "type": "module",
+  "private": true,
   "dependencies": {
     "@koa/router": "^12.0.0",
     "koa": "^2.13.4",

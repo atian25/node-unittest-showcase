@@ -68,7 +68,7 @@ export function init() {
         <head><title>UnitTest Showcase</title></head>
         <body>
           Hi, ${username} <a href="/logout">Logout</a><br />
-          ${ isAdmin ? '<hr /> All Users: <br/> <ul>' + userList.map(name => `<li>${name}</li>`).join('') + '</ul>' : '' }
+          ${isAdmin ? '<hr /> All Users: <br/> <ul>' + userList.map(name => `<li>${name}</li>`).join('') + '</ul>' : ''}
         </body>
       </html>`;
     ctx.type = 'html';
