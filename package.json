@@ -7,9 +7,11 @@
   "private": true,
   "dependencies": {
     "@koa/router": "^12.0.0",
+    "dirname-filename-esm": "^1.1.1",
     "koa": "^2.13.4",
     "koa-body": "^6.0.1",
-    "koa-session": "^6.2.0"
+    "koa-session": "^6.2.0",
+    "koa-static-cache": "^5.1.4"
   },
   "devDependencies": {
     "@artus/tsconfig": "^1.0.1",
@@ -27,7 +29,8 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "start": "node dist/main.js",
+    "start": "node dist/index.js",
+    "start:dev": "ts-node-esm -T src/index.ts",
     "dev": "nodemon",
     "build": "tsc",
     "lint": "eslint ./src --ext .ts",
@@ -39,7 +42,10 @@
     "url": ""
   },
   "c8": {
-    "reporter": [ "html", "text" ]
+    "reporter": [
+      "html",
+      "text"
+    ]
   },
   "publishConfig": {
     "access": "public"
