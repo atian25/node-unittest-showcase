@@ -1,5 +1,7 @@
+import type { BaseContext, Next } from 'koa';
+
 export default () => {
-  return async function accessLog(ctx, next) {
+  return async function accessLog(ctx: BaseContext, next: Next) {
     // 记录访问耗时，并打印日志
     const start = Date.now();
 

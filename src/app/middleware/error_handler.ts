@@ -1,5 +1,7 @@
+import type { BaseContext, Next } from 'koa';
+
 export default () => {
-  return async function errorHandler(ctx, next) {
+  return async function errorHandler(ctx: BaseContext, next: Next) {
     try {
       await next();
     } catch (err) {
