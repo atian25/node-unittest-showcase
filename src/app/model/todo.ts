@@ -4,13 +4,20 @@ const dataStore = [
   { id: '3', title: 'Star Egg', completed: false },
 ];
 
+interface TodoItem {
+  id: string;
+  title: string;
+  completed?: boolean;
+}
+
 export default class TodoStore {
+  private store: TodoItem[];
   constructor() {
     this.store = dataStore;
   }
 
   // 查询任务列表，支持可选过滤参数 { completed }
-  async list(filters) {
+  async list(filters: { completed?: boolean } = {}) {
     const { completed } = filters;
     let list = this.store;
     if (completed !== undefined) {
@@ -20,14 +27,14 @@ export default class TodoStore {
   }
 
   // 查询任务对象，找不到对象会抛错
-  async get(id) {
+  async get(id: string) {
     const index = id ? this.store.findIndex(x => x.id === id) : -1;
     if (index === -1) throw new Error(`task#${id} not found`);
     return this.store[index];
   }
 
   // 添加任务，会校验 title 属性
-  async create(todo) {
+  async create(todo: TodoItem) {
     // 校验数据
     if (!todo.title) throw new Error('task title required');
 
@@ -39,7 +46,7 @@ export default class TodoStore {
   }
 
   // 修改任务，找不到对象会抛错
-  async update(id, todo) {
+  async update(id: string, todo: TodoItem) {
     // 检查是否存在
     const data = await this.get(id);
     if (!todo.title) throw new Error('task title required');
@@ -49,7 +56,7 @@ export default class TodoStore {
   }
 
   // 删除任务，找不到对象会抛错
-  async destroy(id) {
+  async destroy(id: string) {
     const index = id ? this.store.findIndex(x => x.id === id) : -1;
     if (index === -1) throw new Error(`task#${id} not found`);
 
