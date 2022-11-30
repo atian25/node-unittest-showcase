@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@artus/tsconfig": "^1.0.1",
+    "@playwright/test": "^1.28.1",
     "@types/koa": "^2.13.5",
     "@types/koa__router": "^12.0.0",
     "@types/mocha": "^10.0.0",
@@ -41,10 +42,12 @@
     "build": "tsc",
     "lint": "eslint ./src --ext .ts",
     "test": "mocha",
+    "test:e2e": "playwright test test/e2e",
     "cov": "c8 npm test"
   },
   "mocha": {
-    "spec": "test/**/*.test.ts",
+    "spec": [ "test/**/*.test.ts" ],
+    "exclude": [ "test/e2e/**" ],
     "extensions": [ "ts" ],
     "loader": "ts-node/esm/transpile-only",
     "timeout": 60000

@@ -35,7 +35,7 @@ app.use(notFound()); // 未匹配路由兜底处理
 
 
 // 路由映射
-const router = app.router = new Router();
+const router = new Router();
 
 router.get('/', home);
 router.use('/api/', cors({ origin: '*' })); // 打印跨域头
@@ -59,4 +59,4 @@ if (import.meta.url.startsWith('file:')) {
 }
 /* c8 ignore stop */
 
-export default app.callback();
+export default app;
