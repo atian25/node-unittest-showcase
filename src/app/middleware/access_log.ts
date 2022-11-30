@@ -9,6 +9,6 @@ export default () => {
 
     const cost = Date.now() - start;
     ctx.set('X-Response-Time', `${cost}ms`); // 返回到 Header
-    console.log(`[Visit] ${ctx.method} ${ctx.url} ${ctx.status} (${cost}ms)`); // 打印日志
+    // console.log(`[Visit] ${ctx.method} ${ctx.url} ${ctx.status} (${cost}ms)`); // 打印日志
   };
 };

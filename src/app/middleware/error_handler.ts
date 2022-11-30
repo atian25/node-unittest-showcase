@@ -5,7 +5,7 @@ export default () => {
     try {
       await next();
     } catch (err) {
-      console.error(`[Error] ${ctx.method} ${ctx.url}`, err);
+      // console.error(`[Error] ${ctx.method} ${ctx.url}`, err);
 
       ctx.status = err.status || 500;
       ctx.message = err.message;

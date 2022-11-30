@@ -5,6 +5,11 @@
   "author": "TZ <atian25@qq.com>",
   "type": "module",
   "private": true,
+  "homepage": "https://github.com/atian25/node-unittest-showcase",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:atian25/node-unittest-showcase.git"
+  },
   "dependencies": {
     "@koa/router": "^12.0.0",
     "dirname-filename-esm": "^1.1.1",
@@ -19,6 +24,7 @@
     "@types/koa__router": "^12.0.0",
     "@types/mocha": "^10.0.0",
     "@types/node": "^18.11.7",
+    "@types/supertest": "^2.0.12",
     "c8": "^7",
     "eslint": "^8",
     "eslint-config-egg": "^12",
@@ -37,18 +43,14 @@
     "test": "mocha",
     "cov": "c8 npm test"
   },
-  "repository": {
-    "type": "git",
-    "url": ""
+  "mocha": {
+    "spec": "test/**/*.test.ts",
+    "extensions": [ "ts" ],
+    "loader": "ts-node/esm/transpile-only",
+    "timeout": 60000
   },
   "c8": {
-    "reporter": [
-      "html",
-      "text"
-    ]
-  },
-  "publishConfig": {
-    "access": "public"
+    "reporter": [ "html", "text" ]
   },
   "license": "MIT"
 }
