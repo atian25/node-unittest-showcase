@@ -3,7 +3,7 @@ import { runner } from 'clet';
 describe('test/cli.test.ts', () => {
   it('should works with boilerplate', async () => {
     await runner()
-      .cwd('./test/tmp', { init: true })
+      .cwd('./.tmp', { init: true })
       .spawn('npm init', [], {})
       .stdin(/name:/, 'example') // 模拟用户输入
       .stdin(/version:/, new Array(9).fill('\n'))

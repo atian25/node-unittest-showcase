@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import app from '../../src/index.js';
+import app from '../src/index.js';
 
 let server;
 test.beforeAll(async () => {

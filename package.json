@@ -26,6 +26,8 @@
     "@types/mocha": "^10.0.0",
     "@types/node": "^18.11.7",
     "@types/supertest": "^2.0.12",
+    "@vitest/coverage-c8": "^0.25.3",
+    "@vitest/ui": "^0.25.3",
     "c8": "^7",
     "clet": "^1.0.1",
     "eslint": "^8",
@@ -36,7 +38,8 @@
     "sinon": "^15.0.0",
     "supertest": "^6.3.1",
     "ts-node": "^10.8.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "vitest": "^0.25.3"
   },
   "scripts": {
     "start": "node dist/bin/cli.js",
@@ -45,8 +48,10 @@
     "build": "tsc",
     "lint": "eslint ./src --ext .ts",
     "test": "mocha",
-    "test:e2e": "playwright test test/e2e",
-    "cov": "c8 npm test"
+    "cov": "c8 npm test",
+    "test:e2e": "playwright test test-e2e",
+    "test:vitest": "vitest test/ --globals",
+    "cov:vitest": "vitest test/ --coverage --globals"
   },
   "c8": {
     "reporter": [
