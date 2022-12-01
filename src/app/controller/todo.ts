@@ -11,7 +11,11 @@ interface Context extends BaseContext {
 
 // 简化示例，直接全局变量存储数据。
 import Todo from '../model/todo.js';
-const db = new Todo();
+const db = new Todo([
+  { id: '1', title: 'Read history of Node.js', completed: true },
+  { id: '2', title: 'Learn Koa', completed: true },
+  { id: '3', title: 'Star Egg', completed: false },
+]);
 
 // 查询列表，支持过滤 `/api/todo?completed=true`
 export async function index(ctx: Context) {

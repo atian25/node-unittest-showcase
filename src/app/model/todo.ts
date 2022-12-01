@@ -1,9 +1,3 @@
-const dataStore = [
-  { id: '1', title: 'Read history of Node.js', completed: true },
-  { id: '2', title: 'Learn Koa', completed: true },
-  { id: '3', title: 'Star Egg', completed: false },
-];
-
 interface TodoItem {
   id: string;
   title: string;
@@ -11,10 +5,7 @@ interface TodoItem {
 }
 
 export default class TodoStore {
-  private store: TodoItem[];
-  constructor() {
-    this.store = dataStore;
-  }
+  constructor(private store: TodoItem[] = []) {}
 
   // 查询任务列表，支持可选过滤参数 { completed }
   async list(filters: { completed?: boolean } = {}) {
@@ -34,7 +25,7 @@ export default class TodoStore {
   }
 
   // 添加任务，会校验 title 属性
-  async create(todo: TodoItem) {
+  async create(todo: Partial<TodoItem>) {
     // 校验数据
     if (!todo.title) throw new Error('task title required');
 
@@ -46,7 +37,7 @@ export default class TodoStore {
   }
 
   // 修改任务，找不到对象会抛错
-  async update(id: string, todo: TodoItem) {
+  async update(id: string, todo: Partial<TodoItem>) {
     // 检查是否存在
     const data = await this.get(id);
     if (!todo.title) throw new Error('task title required');

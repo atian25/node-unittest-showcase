@@ -2,7 +2,7 @@ import assert from 'assert/strict';
 import request from 'supertest';
 import app from '../src/index.js';
 
-describe('test/index.test.js', () => {
+describe('test/index.test.ts', () => {
   it('should GET /', async () => {
     await request(app.callback())
       .get('/')
