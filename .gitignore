@@ -12,3 +12,4 @@ npm-debug.log
 *-lock.json
 *-lock.yaml
 dist
+test/tmp

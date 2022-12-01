@@ -48,8 +48,8 @@ const config: PlaywrightTestConfig = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        // headless: false,
-        // video: 'on',
+        headless: !!process.env.CI,
+        video: process.env.CI ? 'off' : 'on',
         launchOptions: {
           slowMo: 100,
         },

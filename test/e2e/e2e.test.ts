@@ -16,8 +16,7 @@ test.afterAll(async () => {
 });
 
 test('should work with todo', async ({ page }) => {
-  test.slow();
-
+  const selector = '.todo-list .todo label';
   await page.goto('http://localhost:7001/');
   await expect(page).toHaveTitle(/TodoMVC/);
 
@@ -29,7 +28,7 @@ test('should work with todo', async ({ page }) => {
   await newTodo.press('Enter');
 
   // validate the todo is created
-  await expect(page.locator('.todo-list .todo label')).toHaveText([
+  await expect(page.locator(selector)).toHaveText([
     'Read history of Node.js',
     'Learn Koa',
     'Star Egg',
@@ -40,7 +39,7 @@ test('should work with todo', async ({ page }) => {
 
   // filter the todos
   await page.getByText('Completed').click();
-  await expect(page.locator('.todo-list .todo label')).toHaveText([
+  await expect(page.locator(selector)).toHaveText([
     'Read history of Node.js',
     'Learn Koa',
   ]);
@@ -48,7 +47,7 @@ test('should work with todo', async ({ page }) => {
   await page.waitForTimeout(500);
 
   await page.getByText('Active').click();
-  await expect(page.locator('.todo-list .todo label')).toHaveText([
+  await expect(page.locator(selector)).toHaveText([
     'Star Egg',
     'Write a unittest',
   ]);

@@ -32,7 +32,7 @@ export default class TodoStore {
     // 补全数据，保存
     todo.id = Date.now().toString();
     todo.completed = false;
-    this.store.push(todo);
+    this.store.push(todo as TodoItem);
     return todo;
   }
 

@@ -1,6 +1,4 @@
-import { fileURLToPath } from 'url';
 import path from 'path';
-
 import { dirname } from 'dirname-filename-esm';
 import Koa from 'koa';
 import Router from '@koa/router';
@@ -45,17 +43,5 @@ router.delete('/api/todo/:id', todo.destroy);
 
 // 挂载路由，路由本质上也只是一个中间件，故应该放在最后面挂载。
 app.use(router.routes());
-
-// 直接执行的时候，启动服务
-/* c8 ignore start */
-if (import.meta.url.startsWith('file:')) {
-  const modulePath = fileURLToPath(import.meta.url);
-  if (process.argv[1] === modulePath) {
-    app.listen(3000, () => {
-      console.log('Server started at http://localhost:3000');
-    });
-  }
-}
-/* c8 ignore stop */
 
 export default app;

@@ -1,0 +1,7 @@
+{
+  "spec": [ "test/**/*.test.ts" ],
+  "exclude": [ "test/e2e/**" ],
+  "extensions": [ "ts" ],
+  "loader": "ts-node/esm/transpile-only",
+  "timeout": 60000
+}
