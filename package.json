@@ -46,7 +46,7 @@
     "start:dev": "ts-node-esm -T src/bin/cli.ts",
     "dev": "nodemon",
     "build": "tsc",
-    "lint": "eslint ./src --ext .ts",
+    "lint": "eslint . --ext .ts",
     "test": "mocha",
     "cov": "c8 npm test",
     "test:e2e": "playwright test test-e2e",
