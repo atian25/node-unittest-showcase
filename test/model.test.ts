@@ -5,9 +5,13 @@ describe('test/model.test.ts', () => {
   it('should create todo', async () => {
     const db = new Todo();
     const todo = await db.create({ title: 'test' });
+
     assert(todo.id);
     assert(todo.title === 'test');
     assert(!todo.completed);
+
+    // 演示 assert 失败后的 diff 输出
+    // assert.deepEqual(todo, { id: 1, title: 'test' });
 
     const todo2 = await db.get(todo.id);
     assert(todo2.title === 'test');
