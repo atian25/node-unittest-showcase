@@ -8,9 +8,23 @@
 ## Usage
 
 ```bash
+# install deps
 $ npm i
+
+# run as dev
 $ npm run dev
 
+# mocha
 $ npm test
 $ npm run cov
+
+# vitest
+$ npm run test:vitest
+$ npm run cov:vitest
+
+# node:test
+$ npm run test:node
+
+# e2e test
+$ npm run test:e2e
 ```
