@@ -25,7 +25,7 @@ export default class TodoStore {
   }
 
   // 添加任务，会校验 title 属性
-  async create(todo: Partial<TodoItem>) {
+  async create(todo: Partial<TodoItem>): Promise<TodoItem> {
     // 校验数据
     if (!todo.title) throw new Error('task title required');
 
@@ -37,7 +37,7 @@ export default class TodoStore {
   }
 
   // 修改任务，找不到对象会抛错
-  async update(id: string, todo: Partial<TodoItem>) {
+  async update(id: string, todo: Partial<TodoItem>): Promise<TodoItem> {
     // 检查是否存在
     const data = await this.get(id);
     if (!todo.title) throw new Error('task title required');
@@ -52,6 +52,6 @@ export default class TodoStore {
     if (index === -1) throw new Error(`task#${id} not found`);
 
     // 删除对象
-    return this.store.splice(index, 1);
+    return this.store.splice(index, 1)[0];
   }
 }

@@ -3,7 +3,6 @@ import sinon from 'sinon';
 
 describe('test/mock.test.ts', () => {
   const sandbox = sinon.createSandbox();
-  beforeEach(() => sandbox.spy(console));
   afterEach(() => sandbox.restore() && sinon.restore());
 
   it('should mock', () => {
@@ -17,6 +16,7 @@ describe('test/mock.test.ts', () => {
     };
 
     // 验证特定函数是否被调用
+    sandbox.spy(console);
     obj.sayHi('egg');
     assert((console.log as any).calledWith('Hi, egg'));
 
